@@ -63,47 +63,23 @@ flowchart LR
 mindmap
   root((SFT))
     Goal
-      Base model to instruction follower
-      Teach format and behavior, not new facts
-      Foundation for all later post-training
-    Two defining twists
+      Base to instruction-follower
+      Foundation for DPO / RL
+    The 2 twists
       Chat template
-        Turn markers system/user/assistant
-        Model-specific format
       Completion-only loss
-        Prompt tokens = -100
-        Grade only the response
     Data
-      Prompt-response demonstrations
+      Prompt-response demos
       Quality over quantity
-      Sources
-        Human-written
-        Distilled from stronger model
-        Rejection-sampled (RFT)
-    Training knobs
-      Small learning rate (~1e-5)
-      Warmup + cosine decay
-      Effective batch = micro-batch x grad-accum
-      Epochs 1-3 (overfits fast)
-    Fit-in-memory tricks
-      bfloat16 weights
-      Gradient checkpointing
-      Gradient accumulation
-      LoRA / QLoRA (parameter-efficient variant)
-    Watch out for
-      Forgetting to mask the prompt
-      Wrong chat template
-      Overfitting / catastrophic forgetting
-      Loss looks fine but model rambles
-    Evaluate
-      Base vs tuned side by side
-      Does it answer AND stop?
-      Held-out instructions
-    Branches from here
-      Rejection-sampling SFT
-      Distillation SFT
-      DPO / KTO (add rejected + preference loss)
-      RLHF / GRPO (add reward + RL)
+    Training
+      Low LR ~1e-5
+      1-3 epochs
+    Pitfalls
+      Forgetting the mask
+      Overfitting
+    Next steps
+      Distillation / RFT
+      DPO then RL
 ```
 
 ---
