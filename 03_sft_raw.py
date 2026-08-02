@@ -6,6 +6,8 @@ completion-only label mask, and the training loop. Full fine-tune of Qwen2.5-0.5
 
 Writes the tuned model to ./out-raw   (then run 04_chat_eval.py --model ./out-raw)
 """
+import os
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
 import torch
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer, AutoModelForCausalLM, get_cosine_schedule_with_warmup
@@ -13,8 +15,8 @@ from common import BASE_MODEL, MAX_LEN, load_chat_dataset
 
 DEVICE = "cuda"
 EPOCHS = 1
-BATCH = 8            # micro-batch; effective batch = BATCH * GRAD_ACCUM
-GRAD_ACCUM = 2
+BATCH = 2            # micro-batch; effective batch = BATCH * GRAD_ACCUM
+GRAD_ACCUM = 8       # full FT of 0.5B + Adam states is memory-heavy on 16GB
 LR = 1e-5
 OUT = "./out-raw"
 
