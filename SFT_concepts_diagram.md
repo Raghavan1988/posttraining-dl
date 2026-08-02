@@ -82,6 +82,48 @@ mindmap
       DPO then RL
 ```
 
+### 3b. Drill-down mindmap (the details)
+
+Use the overview above to orient; use this when you want the specifics under each branch.
+
+```mermaid
+mindmap
+  root((SFT<br/>deep dive))
+    Chat template
+      system / user / assistant turns
+      Model-specific markers
+      add_generation_prompt for inference
+    Completion-only loss
+      Prompt tokens set to -100
+      Cross-entropy ignores -100
+      Grade only the answer
+      Pad tokens also -100
+    Data sources
+      Human-written demos
+      Distilled from stronger model
+      Rejection-sampled (keep correct)
+      Curate + dedup + balance
+    Training knobs
+      LR ~1e-5 with warmup
+      Cosine decay
+      Eff. batch = micro x grad-accum
+      Grad clipping 1.0
+    Memory tricks
+      bfloat16 weights
+      Gradient checkpointing
+      Gradient accumulation
+      LoRA / QLoRA
+    Pitfalls
+      Unmasked prompt
+      Wrong template
+      Overfit / forgetting
+      Low loss but rambles
+    Evaluate
+      Base vs tuned
+      Answers AND stops
+      Held-out prompts
+```
+
 ---
 
 ## 4. Where SFT sits in the post-training stack
