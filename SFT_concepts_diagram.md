@@ -63,23 +63,23 @@ flowchart LR
 mindmap
   root((SFT))
     Goal
-      Base to instruction-follower
-      Foundation for DPO / RL
+      Base to instruction-follower — usable assistant
+      Foundation for DPO / RL — enables later stages
     The 2 twists
-      Chat template
-      Completion-only loss
+      Chat template — defines format
+      Completion-only loss — learn answers only
     Data
-      Prompt-response demos
-      Quality over quantity
+      Prompt-response demos — show behavior
+      Quality over quantity — avoids noise
     Training
-      Low LR ~1e-5
-      1-3 epochs
+      Low LR ~1e-5 — gentle steering
+      1-3 epochs — avoids overfit
     Pitfalls
-      Forgetting the mask
-      Overfitting
+      Forgetting the mask — trains on prompt
+      Overfitting — loses generality
     Next steps
-      Distillation / RFT
-      DPO then RL
+      Distillation / RFT — better data
+      DPO then RL — add preferences
 ```
 
 ### 3b. Drill-down mindmap (the details)
@@ -90,38 +90,38 @@ Use the overview above to orient; use this when you want the specifics under eac
 mindmap
   root((SFT<br/>deep dive))
     Chat template
-      system / user / assistant turns
-      Model-specific markers
-      add_generation_prompt for inference
+      system / user / assistant turns — role structure
+      Model-specific markers — model expects them
+      add_generation_prompt — cues the answer
     Completion-only loss
-      Prompt tokens set to -100
-      Cross-entropy ignores -100
-      Grade only the answer
-      Pad tokens also -100
+      Prompt tokens set to -100 — skip prompt
+      Cross-entropy ignores -100 — no gradient
+      Grade only the answer — that is SFT
+      Pad tokens also -100 — padding is noise
     Data sources
-      Human-written demos
-      Distilled from stronger model
-      Rejection-sampled (keep correct)
-      Curate + dedup + balance
+      Human-written demos — gold quality
+      Distilled from stronger model — cheap scale
+      Rejection-sampled — keep correct
+      Curate + dedup + balance — data quality
     Training knobs
-      LR ~1e-5 with warmup
-      Cosine decay
-      Eff. batch = micro x grad-accum
-      Grad clipping 1.0
+      LR ~1e-5 with warmup — stable start
+      Cosine decay — smooth finish
+      Eff. batch = micro x accum — fit memory
+      Grad clipping 1.0 — avoid spikes
     Memory tricks
-      bfloat16 weights
-      Gradient checkpointing
-      Gradient accumulation
-      LoRA / QLoRA
+      bfloat16 weights — half memory
+      Gradient checkpointing — trade compute
+      Gradient accumulation — bigger batch
+      LoRA / QLoRA — fewer params
     Pitfalls
-      Unmasked prompt
-      Wrong template
-      Overfit / forgetting
-      Low loss but rambles
+      Unmasked prompt — wrong signal
+      Wrong template — format mismatch
+      Overfit / forgetting — loses skills
+      Low loss but rambles — no EOS
     Evaluate
-      Base vs tuned
-      Answers AND stops
-      Held-out prompts
+      Base vs tuned — measure change
+      Answers AND stops — good behavior
+      Held-out prompts — no leakage
 ```
 
 ---
