@@ -1,0 +1,3 @@
+# Day 1 SFT. torch / transformers / datasets / accelerate assumed already installed.
+trl>=0.9
+# peft   # not needed for full fine-tune; uncomment for the LoRA variant later
