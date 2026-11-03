@@ -31,6 +31,10 @@ print("\n" + "=" * 70)
 print("(b) AFTER CHAT TEMPLATE (what the model actually reads)")
 print("=" * 70)
 print(full)
+print("=" * 70)
+print("=" * 70)
+print(prompt)
+
 
 # (c) Build the label mask exactly like completion-only SFT does.
 full_ids = tok(full, add_special_tokens=False)["input_ids"]
