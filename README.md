@@ -53,3 +53,6 @@ python 02_sft_trl.py                     # writes ./out-trl
 ### Tomorrow
 Day 2 = **preference data + reward modeling**, then **DPO** — reuses today's dataloader,
 adds a `rejected` column and a pairwise loss.
+
+### Outputs
+Checkpoints are written to `./out-raw` and `./out-trl` (git-ignored).
