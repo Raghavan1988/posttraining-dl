@@ -3,3 +3,4 @@ out-trl/
 out-raw/
 *.pyc
 .ipynb_checkpoints/
+wandb/
