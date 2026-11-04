@@ -1,4 +1,4 @@
-"""Shared config + data helpers for Day 1 SFT."""
+"""Shared config + data helpers for Day 1 SFT (imported by all scripts)."""
 from datasets import load_dataset
 
 BASE_MODEL = "Qwen/Qwen2.5-0.5B"        # base (NOT -Instruct): we do the tuning ourselves
