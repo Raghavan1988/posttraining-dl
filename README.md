@@ -56,3 +56,6 @@ adds a `rejected` column and a pairwise loss.
 
 ### Outputs
 Checkpoints are written to `./out-raw` and `./out-trl` (git-ignored).
+
+### Requirements
+Python 3.10+, a CUDA GPU with ~16GB VRAM, and `pip install -r requirements.txt`.
