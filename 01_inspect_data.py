@@ -9,7 +9,7 @@ Run this FIRST. No training happens. It prints:
 """
 from transformers import AutoTokenizer
 from common import BASE_MODEL, load_chat_dataset
-## from common indicates common.py
+# `common` refers to common.py in this directory
 
 tok = AutoTokenizer.from_pretrained(BASE_MODEL)
 ds = load_chat_dataset(n=5)
