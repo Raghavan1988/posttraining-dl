@@ -63,6 +63,7 @@ Python 3.10+, a CUDA GPU with ~16GB VRAM, and `pip install -r requirements.txt`.
 ### Troubleshooting
 - OOM: lower the batch size or increase gradient accumulation.
 - Slow first run: model and dataset are downloaded to the HF cache.
+- Hugging Face rate limits: run `huggingface-cli login` to authenticate.
 
 ### License
 MIT — see `LICENSE`.
