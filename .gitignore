@@ -6,3 +6,4 @@ out-raw/
 wandb/
 .venv/
 venv/
+.DS_Store
