@@ -138,3 +138,5 @@ flowchart LR
 ```
 
 SFT is step 1 and the reusable base: preference tuning and RL both start from an SFT'd model.
+
+See `README.md` for the day-by-day walkthrough.
