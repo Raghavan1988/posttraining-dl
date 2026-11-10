@@ -4,7 +4,7 @@ A hands-on journey through **post-training recipes** (SFT → preference tuning 
 one focused day at a time. Each day = read the mental model, run a *from-library* baseline,
 then re-implement the core idea in **raw PyTorch** so the mechanics are visible.
 
-Hardware assumed: single 16GB GPU (RTX 4090 Laptop). Everything here fits.
+Hardware assumed: single 16GB GPU (RTX 4090 Laptop). Everything here fits in memory.
 
 ---
 
